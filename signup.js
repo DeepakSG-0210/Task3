@@ -5,7 +5,7 @@ function validateUserName() {
 
   if (userNameInput.value.trim() === "") {
     userNameInput.classList.add("error");
-    userNameInput.classList.remove("success")
+    userNameInput.classList.remove("success");
     userNameError.textContent = "Please enter valid username";
   } else {
     userNameInput.classList.add("success");
@@ -53,9 +53,9 @@ function validatePassword() {
 }
 
 function validateCheckBox() {
-  const checkbox = document.getElementById('checkbox');
+  const checkbox = document.getElementById("checkbox");
 
-  if(!checkbox.checked){
+  if (!checkbox.checked) {
     alert("Please accept the Terms & Conditions");
     return false;
   }
@@ -70,52 +70,56 @@ function saveData() {
   // localStorage.setItem("password", password);
 
   let user_records = new Array();
-  user_records = JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[];
-  if(user_records.some((v) => {
-    return v.email == email;
-  })){
+  user_records = JSON.parse(localStorage.getItem("users"))
+    ? JSON.parse(localStorage.getItem("users"))
+    : [];
+  if (
+    user_records.some((v) => {
+      return v.email == email;
+    })
+  ) {
     alert("Duplicate Data");
   } else {
-    user_records.push({"email": email, 
-    "password":password
-  })
-  localStorage.setItem("users", JSON.stringify(user_records));
+    user_records.push({ email: email, password: password });
+    localStorage.setItem("users", JSON.stringify(user_records));
   }
 }
 
 function validateForm() {
-  // e.preventDefault();
   validateUserName();
   validateEmail();
   validatePassword();
   const condition = validateCheckBox();
-  
+
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  console.log(email);
-
-  if(condition === false){
+  if (condition === false) {
+    window.location.href = "signup.html";
     return;
   }
 
-  if(document.querySelectorAll('.error').length === 0){
+  if (document.querySelectorAll(".error").length === 0) {
     saveData();
-    alert('Submitting');
-  }else {
-    alert('Please fill all the details correctly');
+    alert("Submitting");
+    window.location.href = "https://deepaksg-0210.github.io/Task3/login.html";
+  } else {
+    alert("Please fill all the details correctly");
+    window.location.reload = "https://deepaksg-0210.github.io/Task3/signup.html";
   }
 }
 
-let eyeIcon = document.getElementsByClassName('eyeicon');
-let password = document.getElementById('password');
-// console.log(eyeIcon);
-eyeIcon[0].addEventListener("click", () => {
-  if(password.type == "password"){
-    password.type = "text";
-    eyeIcon.value = "./images/eyeOpen.png";
-  } else {
-    password.type = "password";
-    eyeIcon.src = "./images/eyeClose.png";
-  }
+document.addEventListener("DOMContentLoaded", function () {
+  let eyeIcon = document.getElementsByClassName("eyeicon")[0];
+  let password = document.getElementById("password");
+  // console.log(eyeIcon);
+  eyeIcon.addEventListener("click", function () {
+    if (password.type == "password") {
+      password.type = "text";
+      eyeIcon.src = "./images/eyeOpen.png";
+    } else {
+      password.type = "password";
+      eyeIcon.src = "./images/eyeClose.png";
+    }
+  });
 });

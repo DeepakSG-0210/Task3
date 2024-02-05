@@ -65,15 +65,17 @@ function validateForm() {
   }
 }
 
-let eyeIcon = document.getElementsByClassName("eyeicon");
-let password = document.getElementById("password");
-
-eyeIcon[0].addEventListener("click", () => {
-  if (password.type == "password") {
-    password.type = "text";
-    eyeIcon.src = "./images/eyeOpen.png";
-  } else {
-    password.type = "password";
-    eyeIcon.src = "./images/eyeClose.png";
-  }
+document.addEventListener("DOMContentLoaded", function () {
+  let eyeIcon = document.getElementsByClassName("eyeicon")[0];
+  let password = document.getElementById("password");
+  // console.log(eyeIcon);
+  eyeIcon.addEventListener("click", function () {
+    if (password.type == "password") {
+      password.type = "text";
+      eyeIcon.src = "./images/eyeOpen.png";
+    } else {
+      password.type = "password";
+      eyeIcon.src = "./images/eyeClose.png";
+    }
+  });
 });
