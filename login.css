@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    background-color: #cccccc;
+}
+
+.hr{
+    margin-bottom: 8px;
+    font-weight: 900;
+}
+.wrapper{
+    width: 350px;
+    padding: 2rem 1rem;
+    margin: 50px auto;
+    background-color: white;
+    border-radius: 10px;
+    text-align: start;
+    box-shadow: 0 20px 35px 1px rgba(0, 0, 0, 0.1);
+}
+
+.google{
+    text-align: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    margin-top:  1.5rem;
+    padding: 10px 0;
+    border-radius: 7px;
+    margin-bottom: 1.3rem;
+    width: 97%;
+    color: #333;
+    cursor: pointer;
+    background-color: transparent;
+    background-image: url(https://fonts.gstatic.com/s/i/productlogos/googleg/v6/24px.svg);
+    background-repeat: no-repeat;
+    background-position: 10px;
+    background-position: 55px;
+}
+
+.google:hover{
+    background-color: #5ba3da;
+    transition: 1s;
+}
+
+h3{
+    font-size: 1.3rem;
+    color: #333;
+    /* margin-bottom: 1rem; */
+}
+
+form label{
+    font-size: 14px;
+}
+form input{
+    width: 95%;
+    outline: none;
+    border: 1px solid #aaa;
+    padding: 10px ;
+    /* margin-bottom: 10px; */
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+.error-message{
+    color: #ff0000;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+input.error{
+    border: 2px solid #ff0000;
+}
+
+input.success{
+    border: 2px solid #00ff00;
+}
+
+/* input:focus{
+    border: 1.4px solid rgb(192, 192, 192);
+} */
+
+.login{
+    font-size: 1rem;
+    margin-top:  1.5rem;
+    padding: 10px 0;
+    border-radius: 7px;
+    width: 97%;
+    color: #fff;
+    cursor: pointer;
+    background-color: #328bcf;
+}
+
+.forgot-password{
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.signup{
+    text-align: center;
+}
+
+.remember{
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.forgot-password a{
+    font-size: 0.9rem;
+    color: rgb(11, 113, 222);
+    text-decoration: none;
+}
+
+.signup{
+    font-size: 0.9rem;
+}
+
+.signup a{
+    color: rgb(11, 113, 222);
+    text-decoration: none;
+}
+
+#checkbox{
+    width: 10%;
+}
+
+.password{
+    width: 85%;
+}
+
+.eyeicon{
+    width: 30px;
+    cursor: pointer;
+}

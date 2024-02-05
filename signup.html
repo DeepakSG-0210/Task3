@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link rel="stylesheet" href="signup.css" />
+    <title>Signup</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h3>Sign up</h3>
+      <button class="google">Sign up with Google</button>
+      <hr class="hr" />
+      <form action="login.html">
+        <label for="username">Username</label><br />
+        <input type="text" id="username" oninput="validateUserName()" placeholder="Deepak" autocomplete="off"/>
+        <div id="userNameError" class="error-message"></div>
+        <br />
+        <label for="email">Email</label><br />
+        <input type="text" id="email" oninput="validateEmail()" placeholder="example@gmail.com" autocomplete="email"/><br />
+        <div id="emailError" class="error-message"></div>
+        <br />
+        <label for="password">Password</label><br />
+        <input type="password" id="password" class="password" oninput="validatePassword()" placeholder="Enter password" autocomplete="off"/>
+        <img src="./images/eyeClose.png" alt="" class="eyeicon">
+        <div id="passwordError" class="error-message"></div>
+        <div class="terms">
+          <input type="checkbox" id="checkbox" value="check" autocomplete="off"/>
+          <label for="checkbox"
+            >I agree to these <a href="#">Terms & Conditions</a></label
+          >
+        </div>
+        <button type="submit" class="signup" onclick="validateForm()" >
+          Sign Up
+        </button>
+        <hr />
+        <div class="login">
+          <br />
+          <p>Already have an account?</p>
+          <a href="login.html">Log in</a>
+        </div>
+      </form>
+    </div>
+
+    <script src="signup.js"></script>
+  </body>
+</html>
