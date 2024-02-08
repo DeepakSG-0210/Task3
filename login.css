@@ -83,7 +83,7 @@ body{
 }
 
 .google:hover{
-    background-color: #3ccc5c;
+    background-color: #3dcd58;
     transition: 1s;
 }
 
@@ -117,7 +117,7 @@ input.error{
 }
 
 input.success{
-    border: 2px solid #3ccc5c;
+    border: 2px solid #3dcd58;
 }
 
 /* input:focus{
@@ -132,7 +132,7 @@ input.success{
     width: 97%;
     color: #fff;
     cursor: pointer;
-    background-color: #3ccc5c;
+    background-color: #3dcd58;
 }
 
 .forgot-password{
@@ -167,13 +167,13 @@ input.success{
 
 .forgot-password a:hover{
     font-weight: 500;
-    color: #3ccc5c;
+    color: #3dcd58;
     text-decoration: none;
     transition: .5s;
 }
 
 .signup a:hover{
-    color: #3ccc5c;
+    color: #3dcd58;
     transition: .5s;
 }
 
