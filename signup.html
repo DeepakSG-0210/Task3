@@ -11,25 +11,57 @@
     <title>Signup</title>
   </head>
   <body>
+    <div id="progress">
+      <div id="bar"></div>
+    </div>
+    <div id="alert">
+      <span id="close-btn" onclick="closeButton()">&times;</span>
+      <p>Logged IN</p>
+    </div>
+    <br />
     <div class="wrapper">
       <h3>Sign up</h3>
       <button class="google">Sign up with Google</button>
       <hr class="hr" />
-      <form>
+      <form action="#">
         <label for="username">Username</label><br />
-        <input type="text" id="username" oninput="validateUserName()" placeholder="Deepak" autocomplete="off"/>
+        <input
+          type="text"
+          id="username"
+          oninput="validateUserName()"
+          placeholder="Deepak"
+          autocomplete="off"
+        />
         <div id="userNameError" class="error-message"></div>
         <br />
         <label for="email">Email</label><br />
-        <input type="text" id="email" oninput="validateEmail()" placeholder="example@gmail.com" autocomplete="email"/><br />
+        <input
+          type="text"
+          id="email"
+          oninput="validateEmail()"
+          placeholder="example@gmail.com"
+          autocomplete="email"
+        /><br />
         <div id="emailError" class="error-message"></div>
         <br />
         <label for="password">Password</label><br />
-        <input type="password" id="password" class="password" oninput="validatePassword()" placeholder="Enter password" autocomplete="off"/>
-        <img src="./images/eyeClose.png" alt="" class="eyeicon">
+        <input
+          type="password"
+          id="password"
+          class="password"
+          oninput="validatePassword()"
+          placeholder="Enter password"
+          autocomplete="off"
+        />
+        <img src="./images/eyeClose.png" alt="" class="eyeicon" />
         <div id="passwordError" class="error-message"></div>
         <div class="terms">
-          <input type="checkbox" id="checkbox" value="check" autocomplete="off"/>
+          <input
+            type="checkbox"
+            id="checkbox"
+            value="check"
+            autocomplete="off"
+          />
           <label for="checkbox"
             >I agree to these <a href="#">Terms & Conditions</a></label
           >

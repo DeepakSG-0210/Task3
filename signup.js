@@ -1,5 +1,8 @@
+let message;
+let pMessage;
+let flag;
+
 function validateUserName() {
-  // console.log('Im here');
   const userNameInput = document.getElementById("username");
   const userNameError = document.getElementById("userNameError");
 
@@ -28,11 +31,7 @@ function validateEmail() {
     emailInput.classList.add("error");
     emailError.textContent = "Invalid email address";
   }
-  localStorage.setItem("email", emailInput);
 }
-
-// const checkbox = document.getElementsByTagName('checkbox');
-// console.log(checkbox);
 
 function validatePassword() {
   const passwordInput = document.getElementById("password");
@@ -52,11 +51,35 @@ function validatePassword() {
   }
 }
 
+function progress() {
+  let i = 0;
+  if (i === 0) {
+    let elem = document.getElementById("bar");
+    let width = 1;
+    let id = setInterval(frame, 10);
+    function frame() {
+      if (width >= 100) {
+        clearInterval();
+        i = 0;
+      } else {
+        width += 2;
+        elem.style.width = width + "%";
+      }
+    }
+  }
+}
+
 function validateCheckBox() {
   const checkbox = document.getElementById("checkbox");
 
   if (!checkbox.checked) {
-    alert("Please accept the Terms & Conditions");
+    // alert("Please accept the Terms & Conditions");
+    progress();
+    message = document.getElementById("alert");
+    pMessage = document.querySelector("#alert p");
+    message.style.backgroundColor = "red";
+    message.style.opacity = 100;
+    pMessage.textContent = "Please accept the Terms & Conditions";
     return false;
   }
 }
@@ -64,10 +87,6 @@ function validateCheckBox() {
 function saveData() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
-
-  console.log(email);
-  // localStorage.setItem("email", email);
-  // localStorage.setItem("password", password);
 
   let user_records = new Array();
   user_records = JSON.parse(localStorage.getItem("users"))
@@ -78,10 +97,39 @@ function saveData() {
       return v.email == email;
     })
   ) {
-    alert("Duplicate Data");
+    // alert("Duplicate Data");
+    progress();
+    let message = document.getElementById("alert");
+    const pMessage = document.querySelector("#alert p");
+    message.style.backgroundColor = "red";
+    message.style.opacity = 100;
+    pMessage.textContent = "Email already exists!!";
+    return false;
   } else {
+    console.log(flag);
+    flag = 1;
+    moveProgressBar(flag);
     user_records.push({ email: email, password: password });
     localStorage.setItem("users", JSON.stringify(user_records));
+  }
+}
+
+function moveProgressBar(flag) {
+  progress();
+  // let i;
+  message = document.getElementById("alert");
+  pMessage = document.querySelector("#alert p");
+  if (flag === 1) {
+    console.log(flag);
+    message.style.backgroundColor = "#3ccc5d";
+    message.style.opacity = 100;
+    pMessage.textContent = "Signup Successful!!";
+    // credentialsError.textContent = "";
+  } else if (flag === 0) {
+    message.style.backgroundColor = "red";
+    message.style.opacity = 100;
+    pMessage.textContent = "Please fill all the details correctly";
+    // credentialsError.textContent = "Please enter valid email or password";
   }
 }
 
@@ -95,17 +143,16 @@ function validateForm() {
   const password = document.getElementById("password").value;
 
   if (condition === false) {
-    window.location.href = "signup.html";
     return;
   }
 
   if (document.querySelectorAll(".error").length === 0) {
     saveData();
-    alert("Submitting");
-    window.location.href = "https://deepaksg-0210.github.io/Task3/login.html";
+    // alert("Submitting");
   } else {
-    alert("Please fill all the details correctly");
-    window.location.reload = "https://deepaksg-0210.github.io/Task3/signup.html";
+    // alert("Please fill all the details correctly");
+    flag = 0;
+    moveProgressBar(flag);
   }
 }
 
@@ -123,3 +170,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+function closeButton() {
+  let close = document.getElementById("close-btn");
+  let closeBtn = close.parentElement;
+  closeBtn.style.opacity = "0";
+  setTimeout(function() {
+    dispatchEvent.style.display = "none";
+  }, 300);
+}

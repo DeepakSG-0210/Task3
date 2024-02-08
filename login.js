@@ -77,7 +77,7 @@ function moveProgressBar(flag) {
         } else if (flag === 0) {
           message.style.backgroundColor = "red";
           message.style.opacity = 100;
-          pMessage.textContent = "Login Failure!!";
+          pMessage.textContent = "Login Failed!!";
           credentialsError.textContent = "Please enter valid email or password";
         }
       } else {
@@ -109,3 +109,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+function closeButton() {
+  let close = document.getElementById("close-btn");
+  let closeBtn = close.parentElement;
+  closeBtn.style.opacity = "0";
+  setTimeout(function() {
+    dispatchEvent.style.display = "none";
+  }, 600);
+}
