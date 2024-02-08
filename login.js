@@ -34,6 +34,7 @@ function validatePassword() {
 }
 
 function compareData() {
+  let flag;
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
@@ -46,18 +47,48 @@ function compareData() {
       return v.email === email && v.password === password;
     })
   ) {
-    alert("Login Successfull!");
+    flag = 1;
+    moveProgressBar(flag);
+
   } else {
-    credentialsError.textContent = "Please enter valid email or password";
-    alert("Login Fail");
+    flag = 0;
+    moveProgressBar(flag);
+  }
+}
+
+function moveProgressBar(flag) {
+  let i = 0;
+  if (i === 0) {
+    let elem = document.getElementById("bar");
+    let width = 1;
+    let id = setInterval(frame, 10);
+    function frame() {
+      if (width >= 100) {
+        let message = document.getElementById("alert");
+        const pMessage = document.querySelector("#alert p");
+        clearInterval(id);
+        i = 0;
+        elem.style.width = 0;
+        if(i === 0 && flag === 1){
+          message.style.backgroundColor = "#3ccc5d";
+          message.style.opacity = 100;
+          pMessage.textContent = "Login Successful!!";
+          credentialsError.textContent = "";
+        } else if (flag === 0) {
+          message.style.backgroundColor = "red";
+          message.style.opacity = 100;
+          pMessage.textContent = "Login Failure!!";
+          credentialsError.textContent = "Please enter valid email or password";
+        }
+      } else {
+        width++;
+        elem.style.width = width+"%";
+      }
+    }
   }
 }
 
 function validateForm() {
-  validateEmail();
-  validatePassword();
-
-  console.log(document.querySelectorAll(".error"));
   if (document.querySelectorAll(".error").length === 0) {
     compareData();
   } else {
@@ -68,7 +99,6 @@ function validateForm() {
 document.addEventListener("DOMContentLoaded", function () {
   let eyeIcon = document.getElementsByClassName("eyeicon")[0];
   let password = document.getElementById("password");
-  // console.log(eyeIcon);
   eyeIcon.addEventListener("click", function () {
     if (password.type == "password") {
       password.type = "text";
