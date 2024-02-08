@@ -116,5 +116,5 @@ function closeButton() {
   closeBtn.style.opacity = "0";
   setTimeout(function() {
     dispatchEvent.style.display = "none";
-  }, 600);
+  }, 300);
 }
