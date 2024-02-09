@@ -59,8 +59,9 @@ function progress() {
     let id = setInterval(frame, 10);
     function frame() {
       if (width >= 100) {
-        clearInterval();
+        clearInterval(id);
         i = 0;
+        elem.style.width = 0;
       } else {
         width += 2;
         elem.style.width = width + "%";
@@ -172,9 +173,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function closeButton() {
-  let closeBtn = this.parentElement;
+  let close = document.getElementById("close-btn");
+  let closeBtn = close.parentElement;
   closeBtn.style.opacity = "0";
   setTimeout(function() {
-    closeBtn.style.display = "none";
+    dispatchEvent.style.display = "none";
   }, 300);
 }

@@ -49,14 +49,13 @@ function compareData() {
   ) {
     flag = 1;
     moveProgressBar(flag);
-
   } else {
     flag = 0;
     moveProgressBar(flag);
   }
 }
 
-function moveProgressBar(flag) {
+function moveProgressBar(flag = 2) {
   let i = 0;
   if (i === 0) {
     let elem = document.getElementById("bar");
@@ -69,7 +68,7 @@ function moveProgressBar(flag) {
         clearInterval(id);
         i = 0;
         elem.style.width = 0;
-        if(i === 0 && flag === 1){
+        if (i === 0 && flag === 1) {
           message.style.backgroundColor = "#3ccc5d";
           message.style.opacity = 100;
           pMessage.textContent = "Login Successful!!";
@@ -82,7 +81,7 @@ function moveProgressBar(flag) {
         }
       } else {
         width += 2;
-        elem.style.width = width+"%";
+        elem.style.width = width + "%";
       }
     }
   }
@@ -92,7 +91,13 @@ function validateForm() {
   if (document.querySelectorAll(".error").length === 0) {
     compareData();
   } else {
-    alert("Please fill all the required fields!");
+    moveProgressBar();
+    let message = document.getElementById("alert");
+    const pMessage = document.querySelector("#alert p");
+    message.style.backgroundColor = "red";
+    message.style.opacity = 100;
+    pMessage.textContent = "Please fill all the required fields!!";
+    // alert("Please fill all the required fields!");
   }
 }
 
@@ -111,9 +116,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function closeButton() {
-  let closeBtn = this.parentElement;
+  let close = document.getElementById("close-btn");
+  let closeBtn = close.parentElement;
   closeBtn.style.opacity = "0";
-  setTimeout(function() {
-    closeBtn.style.display = "none";
+  setTimeout(function () {
+    dispatchEvent.style.display = "none";
   }, 300);
 }
