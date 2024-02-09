@@ -172,10 +172,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function closeButton() {
-  let close = document.getElementById("close-btn");
-  let closeBtn = close.parentElement;
+  let closeBtn = this.parentElement;
   closeBtn.style.opacity = "0";
   setTimeout(function() {
-    dispatchEvent.style.display = "none";
+    closeBtn.style.display = "none";
   }, 300);
 }
