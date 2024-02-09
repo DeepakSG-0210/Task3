@@ -81,7 +81,7 @@ function moveProgressBar(flag) {
           credentialsError.textContent = "Please enter valid email or password";
         }
       } else {
-        width++;
+        width += 2;
         elem.style.width = width+"%";
       }
     }
