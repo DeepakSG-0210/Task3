@@ -39,7 +39,7 @@ body{
   transition: 0.3s;
 }
 #alert p{
-  transition: 3.2s;
+  transition: ease-in 4s;
   font-weight: 550;
 }
 

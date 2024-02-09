@@ -176,6 +176,6 @@ function closeButton() {
   let closeBtn = close.parentElement;
   closeBtn.style.opacity = "0";
   setTimeout(function() {
-    closeBtn.style.display = "none";
+    dispatchEvent.style.display = "none";
   }, 300);
 }
